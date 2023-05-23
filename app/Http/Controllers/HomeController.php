@@ -24,6 +24,8 @@ class HomeController extends Controller
         $question1=DB::table('questions')->where('question_category','General Questions')->get();
         $question2=DB::table('questions')->where('question_category','Privacy & Security')->get();
         $confidant=DB::table('confidant')->get();
-        return view('home.index',compact('services','feature1','feature2','feature3','plans','questions','answers','reviews','team','question1','question2','confidant'));
+        $home=DB::table('site_setting')->get();
+        // dd($home);
+        return view('home.index',compact('services','feature1','feature2','feature3','plans','questions','answers','reviews','team','question1','question2','confidant','home'));
     }
 }

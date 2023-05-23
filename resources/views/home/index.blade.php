@@ -29,9 +29,11 @@
                         </div>
                         <div class="carousel slide carousel-fade" data-bs-ride="carousel">
                             <div class="carousel-inner shadow-lg p-2 bg-white rounded">
+                                @foreach($home as $data)
                                 <div class="carousel-item active" data-bs-interval="2000">
-                                    <img src="assets/images/demos/default.png" class="d-block w-100" alt="...">
+                                    <img src="{{ getImage('site', $data->home_featured_image) }}" class="d-block w-100" alt="...">
                                 </div>
+                                @endforeach
                                 <div class="carousel-item" data-bs-interval="2000">
                                     <img src="assets/images/demos/saas.png" class="d-block w-100" alt="...">
                                 </div>
@@ -214,9 +216,16 @@
                         <h4 class="mb-3">{{$feat2->title}}</h4>
                         <p class="mb-4 ff-secondary">){{$feat2->description}}</p>
 
+                        @php
+                            $feature2_keypoint = DB::table('feature_key_point')
+                                ->where('feature_category', $feat2->id)
+                                ->where('is_active', true)
+                                ->get();
+                        @endphp
                         <div class="row">
                             <div class="col-sm-5">
                                 <div class="vstack gap-2">
+                                    @foreach($feature2_keypoint as $key2)
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0 me-2">
                                             <div class="avatar-xs icon-effect">
@@ -226,61 +235,10 @@
                                             </div>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <h5 class="fs-14 mb-0">Ecommerce</h5>
+                                            <h5 class="fs-14 mb-0">{{$key2->title}}</h5>
                                         </div>
                                     </div>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 me-2">
-                                            <div class="avatar-xs icon-effect">
-                                                <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                                    <i class="ri-check-fill"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h5 class="fs-14 mb-0">Analytics</h5>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 me-2">
-                                            <div class="avatar-xs icon-effect">
-                                                <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                                    <i class="ri-check-fill"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h5 class="fs-14 mb-0">CRM</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-5">
-                                <div class="vstack gap-2">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 me-2">
-                                            <div class="avatar-xs icon-effect">
-                                                <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                                    <i class="ri-check-fill"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h5 class="fs-14 mb-0">Crypto</h5>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 me-2">
-                                            <div class="avatar-xs icon-effect">
-                                                <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                                    <i class="ri-check-fill"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h5 class="fs-14 mb-0">Projects</h5>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -312,8 +270,15 @@
                         <h5 class="fs-12 text-uppercase text-success">structure</h5>
                         <h4 class="mb-3">{{$feat3->title}}</h4>
                         <p class="mb-4">{{$feat3->description}}</p>
-
+                        
                         <div class="vstack gap-2">
+                            @php
+                            $feature3_keypoint = DB::table('feature_key_point')
+                                ->where('feature_category', $feat3->id)
+                                ->where('is_active', true)
+                                ->get();
+                            @endphp
+                            @foreach($feature3_keypoint as $key3)
                             <div class="d-flex align-items-center">
                                 <div class="flex-shrink-0 me-2">
                                     <div class="avatar-xs icon-effect">
@@ -323,33 +288,10 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <p class="mb-0">Dynamic Conetnt</p>
+                                    <p class="mb-0">{{$key3->title}}</p>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center">
-                                <div class="flex-shrink-0 me-2">
-                                    <div class="avatar-xs icon-effect">
-                                        <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                            <i class="ri-check-fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <p class="mb-0">Setup plugin's information.</p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <div class="flex-shrink-0 me-2">
-                                    <div class="avatar-xs icon-effect">
-                                        <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                            <i class="ri-check-fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <p class="mb-0">Themes customization information</p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

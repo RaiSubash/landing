@@ -28,13 +28,13 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example">
-
+    
+    @foreach($home as $data)
     <div class="layout-wrapper landing">
         <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark" height="17">
-                    <img src="assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light" height="17">
+                    <img src="{{ getImage('site', $data->footer_logo) }}" class="card-logo card-logo-dark" alt="logo dark" height="50px">
                 </a>
                 <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="mdi mdi-menu"></i>
@@ -86,11 +86,11 @@
                     <div class="col-lg-4 mt-4">
                         <div>
                             <div>
-                                <img src="assets/images/logo-light.png" alt="logo light" height="17">
+                                <img src="{{ getImage('site', $data->footer_logo) }}" alt="logo light" height="50px">
                             </div>
                             <div class="mt-4 fs-13">
-                                <p>Premium Multipurpose Admin & Dashboard Template</p>
-                                <p class="ff-secondary">You can build any type of web application like eCommerce, CRM, CMS, Project management apps, Admin Panels, etc using Velzon.</p>
+                                <p>{{$data->footer_title}}</p>
+                                <p class="ff-secondary">{{$data->footer_description}}</p>
                             </div>
                         </div>
                     </div>
@@ -188,15 +188,16 @@
             </div>
         </footer>
         <!-- end footer -->
-
-
+        
+        
         <!--start back-to-top-->
         <button onclick="topFunction()" class="btn btn-danger btn-icon landing-back-top" id="back-to-top">
             <i class="ri-arrow-up-line"></i>
         </button>
         <!--end back-to-top-->
-
+        
     </div>
+    @endforeach
     <!-- end layout wrapper -->
 
 
