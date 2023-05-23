@@ -406,8 +406,8 @@
                                     </div>
                                 </div>
                                 <div class="py-4 text-center">
-                                    <h1 class="month"><sup><small>$</small></sup><span
-                                            class="ff-secondary fw-bold">19</span> <span
+                                    <h1 class="month">
+                                        <span class="ff-secondary fw-bold">{{$plan->price}}</span> <span
                                             class="fs-13 text-muted">/Month</span></h1>
                                     <h1 class="annual"><sup><small>$</small></sup><span
                                             class="ff-secondary fw-bold">171</span> <span
