@@ -270,7 +270,7 @@
                         <h5 class="fs-12 text-uppercase text-success">structure</h5>
                         <h4 class="mb-3">{{$feat3->title}}</h4>
                         <p class="mb-4">{{$feat3->description}}</p>
-                        
+
                         <div class="vstack gap-2">
                             @php
                             $feature3_keypoint = DB::table('feature_key_point')

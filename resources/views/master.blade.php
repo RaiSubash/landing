@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Landing | Velzon - Admin & Dashboard Template</title>
+    <title>Sajilo HR</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -28,7 +28,7 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example">
-    
+
     @foreach($home as $data)
     <div class="layout-wrapper landing">
         <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
@@ -188,14 +188,14 @@
             </div>
         </footer>
         <!-- end footer -->
-        
-        
+
+
         <!--start back-to-top-->
         <button onclick="topFunction()" class="btn btn-danger btn-icon landing-back-top" id="back-to-top">
             <i class="ri-arrow-up-line"></i>
         </button>
         <!--end back-to-top-->
-        
+
     </div>
     @endforeach
     <!-- end layout wrapper -->
